@@ -9,9 +9,9 @@
 /* Begin PBXBuildFile section */
 		A560B359263F9D0B00248582 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A560B358263F9D0B00248582 /* AppDelegate.swift */; };
 		A560B35D263F9D0B00248582 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A560B35C263F9D0B00248582 /* ViewController.swift */; };
-		A560B360263F9D0B00248582 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A560B35E263F9D0B00248582 /* Main.storyboard */; };
 		A560B362263F9D1400248582 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A560B361263F9D1400248582 /* Assets.xcassets */; };
 		A560B365263F9D1400248582 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A560B363263F9D1400248582 /* LaunchScreen.storyboard */; };
+		A560B38B263FA2F500248582 /* Welcome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A560B38A263FA2F500248582 /* Welcome.storyboard */; };
 		AB63D2ED452AFD8B53C2A407 /* Pods_PlatziTweets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53A7DDD8138DBE7F01AF7AEE /* Pods_PlatziTweets.framework */; };
 /* End PBXBuildFile section */
 
@@ -20,10 +20,10 @@
 		A560B355263F9D0B00248582 /* PlatziTweets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PlatziTweets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A560B358263F9D0B00248582 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A560B35C263F9D0B00248582 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		A560B35F263F9D0B00248582 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A560B361263F9D1400248582 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A560B364263F9D1400248582 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A560B366263F9D1400248582 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A560B38A263FA2F500248582 /* Welcome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Welcome.storyboard; sourceTree = "<group>"; };
 		EBE8EDB06880984F871DF5E9 /* Pods-PlatziTweets.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlatziTweets.debug.xcconfig"; path = "Target Support Files/Pods-PlatziTweets/Pods-PlatziTweets.debug.xcconfig"; sourceTree = "<group>"; };
 		F473967EC2D13413B0AD1F92 /* Pods-PlatziTweets.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlatziTweets.release.xcconfig"; path = "Target Support Files/Pods-PlatziTweets/Pods-PlatziTweets.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -69,14 +69,38 @@
 		A560B357263F9D0B00248582 /* PlatziTweets */ = {
 			isa = PBXGroup;
 			children = (
-				A560B358263F9D0B00248582 /* AppDelegate.swift */,
-				A560B35C263F9D0B00248582 /* ViewController.swift */,
-				A560B35E263F9D0B00248582 /* Main.storyboard */,
-				A560B361263F9D1400248582 /* Assets.xcassets */,
-				A560B363263F9D1400248582 /* LaunchScreen.storyboard */,
+				A560B387263FA2A000248582 /* Modules */,
+				A560B386263FA29300248582 /* Commons */,
 				A560B366263F9D1400248582 /* Info.plist */,
 			);
 			path = PlatziTweets;
+			sourceTree = "<group>";
+		};
+		A560B386263FA29300248582 /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				A560B358263F9D0B00248582 /* AppDelegate.swift */,
+				A560B35C263F9D0B00248582 /* ViewController.swift */,
+				A560B361263F9D1400248582 /* Assets.xcassets */,
+				A560B363263F9D1400248582 /* LaunchScreen.storyboard */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		A560B387263FA2A000248582 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				A560B389263FA2CF00248582 /* Welcome */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		A560B389263FA2CF00248582 /* Welcome */ = {
+			isa = PBXGroup;
+			children = (
+				A560B38A263FA2F500248582 /* Welcome.storyboard */,
+			);
+			path = Welcome;
 			sourceTree = "<group>";
 		};
 		E2DAF59453374BD6D15DF0E0 /* Pods */ = {
@@ -149,7 +173,7 @@
 			files = (
 				A560B365263F9D1400248582 /* LaunchScreen.storyboard in Resources */,
 				A560B362263F9D1400248582 /* Assets.xcassets in Resources */,
-				A560B360263F9D0B00248582 /* Main.storyboard in Resources */,
+				A560B38B263FA2F500248582 /* Welcome.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,14 +234,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		A560B35E263F9D0B00248582 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				A560B35F263F9D0B00248582 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		A560B363263F9D1400248582 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
