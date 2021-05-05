@@ -44,6 +44,8 @@ class LoginViewController: UIViewController {
             return
         }
         
+        performSegue(withIdentifier: "showHome", sender: nil)
+        
         
         
     }

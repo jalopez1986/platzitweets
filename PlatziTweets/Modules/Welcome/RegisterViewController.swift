@@ -47,6 +47,8 @@ class RegisterViewController: UIViewController {
             return
         }
         
+        performSegue(withIdentifier: "showHome", sender: nil)
+        
     }
 
 }
