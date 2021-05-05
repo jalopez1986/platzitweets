@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Welcome View Controller-->
         <scene sceneID="3uM-Ow-v0v">
             <objects>
-                <viewController id="CPs-Io-cOw" sceneMemberID="viewController">
+                <viewController id="CPs-Io-cOw" customClass="WelcomeViewController" customModule="PlatziTweets" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GgA-cv-ZDW">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -89,6 +89,9 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="hsZ-gi-x64"/>
+                    <connections>
+                        <outlet property="loginButton" destination="yK9-az-flI" id="ttM-Tl-uY0"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10G-ZF-NRD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -97,7 +100,7 @@
         <!--Registro-->
         <scene sceneID="Amt-rm-tto">
             <objects>
-                <viewController id="PQ8-Jm-e6A" sceneMemberID="viewController">
+                <viewController id="PQ8-Jm-e6A" customClass="RegisterViewController" customModule="PlatziTweets" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ah5-V6-cRO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -130,6 +133,9 @@
                                         <state key="normal" title="Registro">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="registerButtonAction" destination="PQ8-Jm-e6A" eventType="touchUpInside" id="uQR-G3-Bxr"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -152,6 +158,12 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Registro" id="Occ-Sq-MLp"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="szB-XH-iIs" id="9ju-Pa-PgN"/>
+                        <outlet property="nameTextField" destination="JDd-9c-KNX" id="QJU-Zb-GG6"/>
+                        <outlet property="passwordTextField" destination="0cY-Sg-7W4" id="sqt-sM-pe0"/>
+                        <outlet property="registerButton" destination="t7i-HZ-jk4" id="RhY-rY-y43"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4h1-jt-evT" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -160,7 +172,7 @@
         <!--Iniciar Sesion-->
         <scene sceneID="YVf-1Z-iqs">
             <objects>
-                <viewController id="WBr-bO-Gdr" sceneMemberID="viewController">
+                <viewController id="WBr-bO-Gdr" customClass="LoginViewController" customModule="PlatziTweets" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HYg-CI-l1o">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -188,6 +200,9 @@
                                         <state key="normal" title="Iniciar Sesion">
                                             <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="LoginButtonAction" destination="WBr-bO-Gdr" eventType="touchUpInside" id="mHG-WJ-coy"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -210,6 +225,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Iniciar Sesion" id="2iZ-1c-zjg"/>
+                    <connections>
+                        <outlet property="emailTextField" destination="zop-JV-Lcp" id="JIo-x0-U3M"/>
+                        <outlet property="loginButton" destination="HqR-dh-Qff" id="TqF-wm-jbL"/>
+                        <outlet property="passwordTextField" destination="3XG-fM-QGd" id="RNz-Cl-IhQ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P3u-mu-C1A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
