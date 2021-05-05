@@ -16,6 +16,17 @@
 		A560B3922640FB9A00248582 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A560B3912640FB9A00248582 /* LoginViewController.swift */; };
 		A560B3952640FBB400248582 /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A560B3942640FBB400248582 /* RegisterViewController.swift */; };
 		A560B39926423D6C00248582 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A560B39826423D6C00248582 /* Home.storyboard */; };
+		A560B39F264241F000248582 /* LoginResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A560B39E264241F000248582 /* LoginResponse.swift */; };
+		A560B3A22642423B00248582 /* ErrorResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A560B3A12642423B00248582 /* ErrorResponse.swift */; };
+		A560B3A52642425F00248582 /* GeneralResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = A560B3A42642425F00248582 /* GeneralResponse.swift */; };
+		A560B3A8264242A400248582 /* RegisterRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A560B3A7264242A400248582 /* RegisterRequest.swift */; };
+		A560B3AB264242E200248582 /* PostRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A560B3AA264242E200248582 /* PostRequest.swift */; };
+		A560B3AE2642432300248582 /* PostRequestLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A560B3AD2642432300248582 /* PostRequestLocation.swift */; };
+		A560B3B12642438B00248582 /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = A560B3B02642438B00248582 /* LoginRequest.swift */; };
+		A560B3B4264243C300248582 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = A560B3B3264243C300248582 /* User.swift */; };
+		A560B3B7264243F800248582 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = A560B3B6264243F800248582 /* Post.swift */; };
+		A560B3BA2642446E00248582 /* PostLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = A560B3B92642446E00248582 /* PostLocation.swift */; };
+		A560B3BD264245DF00248582 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = A560B3BC264245DF00248582 /* Endpoints.swift */; };
 		AB63D2ED452AFD8B53C2A407 /* Pods_PlatziTweets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53A7DDD8138DBE7F01AF7AEE /* Pods_PlatziTweets.framework */; };
 /* End PBXBuildFile section */
 
@@ -32,6 +43,17 @@
 		A560B3912640FB9A00248582 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		A560B3942640FBB400248582 /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		A560B39826423D6C00248582 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		A560B39E264241F000248582 /* LoginResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginResponse.swift; sourceTree = "<group>"; };
+		A560B3A12642423B00248582 /* ErrorResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorResponse.swift; sourceTree = "<group>"; };
+		A560B3A42642425F00248582 /* GeneralResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GeneralResponse.swift; sourceTree = "<group>"; };
+		A560B3A7264242A400248582 /* RegisterRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterRequest.swift; sourceTree = "<group>"; };
+		A560B3AA264242E200248582 /* PostRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRequest.swift; sourceTree = "<group>"; };
+		A560B3AD2642432300248582 /* PostRequestLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostRequestLocation.swift; sourceTree = "<group>"; };
+		A560B3B02642438B00248582 /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
+		A560B3B3264243C300248582 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		A560B3B6264243F800248582 /* Post.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		A560B3B92642446E00248582 /* PostLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostLocation.swift; sourceTree = "<group>"; };
+		A560B3BC264245DF00248582 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
 		EBE8EDB06880984F871DF5E9 /* Pods-PlatziTweets.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlatziTweets.debug.xcconfig"; path = "Target Support Files/Pods-PlatziTweets/Pods-PlatziTweets.debug.xcconfig"; sourceTree = "<group>"; };
 		F473967EC2D13413B0AD1F92 /* Pods-PlatziTweets.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlatziTweets.release.xcconfig"; path = "Target Support Files/Pods-PlatziTweets/Pods-PlatziTweets.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -87,10 +109,12 @@
 		A560B386263FA29300248582 /* Commons */ = {
 			isa = PBXGroup;
 			children = (
+				A560B39B264241AB00248582 /* Models */,
 				A560B358263F9D0B00248582 /* AppDelegate.swift */,
 				A560B35C263F9D0B00248582 /* ViewController.swift */,
 				A560B361263F9D1400248582 /* Assets.xcassets */,
 				A560B363263F9D1400248582 /* LaunchScreen.storyboard */,
+				A560B3BC264245DF00248582 /* Endpoints.swift */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -121,6 +145,39 @@
 				A560B39826423D6C00248582 /* Home.storyboard */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		A560B39B264241AB00248582 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				A560B39C264241B500248582 /* Response */,
+				A560B39D264241BE00248582 /* Request */,
+				A560B3B3264243C300248582 /* User.swift */,
+				A560B3B6264243F800248582 /* Post.swift */,
+				A560B3B92642446E00248582 /* PostLocation.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		A560B39C264241B500248582 /* Response */ = {
+			isa = PBXGroup;
+			children = (
+				A560B39E264241F000248582 /* LoginResponse.swift */,
+				A560B3A12642423B00248582 /* ErrorResponse.swift */,
+				A560B3A42642425F00248582 /* GeneralResponse.swift */,
+			);
+			path = Response;
+			sourceTree = "<group>";
+		};
+		A560B39D264241BE00248582 /* Request */ = {
+			isa = PBXGroup;
+			children = (
+				A560B3A7264242A400248582 /* RegisterRequest.swift */,
+				A560B3AA264242E200248582 /* PostRequest.swift */,
+				A560B3AD2642432300248582 /* PostRequestLocation.swift */,
+				A560B3B02642438B00248582 /* LoginRequest.swift */,
+			);
+			path = Request;
 			sourceTree = "<group>";
 		};
 		E2DAF59453374BD6D15DF0E0 /* Pods */ = {
@@ -247,11 +304,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A560B3B4264243C300248582 /* User.swift in Sources */,
 				A560B3922640FB9A00248582 /* LoginViewController.swift in Sources */,
+				A560B3AE2642432300248582 /* PostRequestLocation.swift in Sources */,
 				A560B3952640FBB400248582 /* RegisterViewController.swift in Sources */,
+				A560B3B12642438B00248582 /* LoginRequest.swift in Sources */,
+				A560B3B7264243F800248582 /* Post.swift in Sources */,
+				A560B3A8264242A400248582 /* RegisterRequest.swift in Sources */,
+				A560B39F264241F000248582 /* LoginResponse.swift in Sources */,
 				A560B38F2640FB8500248582 /* WelcomeViewController.swift in Sources */,
 				A560B35D263F9D0B00248582 /* ViewController.swift in Sources */,
+				A560B3A52642425F00248582 /* GeneralResponse.swift in Sources */,
+				A560B3BA2642446E00248582 /* PostLocation.swift in Sources */,
+				A560B3AB264242E200248582 /* PostRequest.swift in Sources */,
 				A560B359263F9D0B00248582 /* AppDelegate.swift in Sources */,
+				A560B3BD264245DF00248582 /* Endpoints.swift in Sources */,
+				A560B3A22642423B00248582 /* ErrorResponse.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
