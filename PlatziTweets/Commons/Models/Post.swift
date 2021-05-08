@@ -17,5 +17,5 @@ struct Post: Codable {
     let hasVideo: Bool
     let hasImage: Bool
     let hasLocation: Bool
-    let createAt: String
+    let createdAt: String
 }

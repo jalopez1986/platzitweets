@@ -60,6 +60,7 @@ class RegisterViewController: UIViewController {
             switch response {
             case .success(let user):
                 //NotificationBanner(subtitle: "Bienvenido \(user.user.names)", style: .success).show()
+                SimpleNetworking.setAuthenticationHeader(prefix: "", token: user.token)
                 self.performSegue(withIdentifier: "showHome", sender: nil)
                 
             case .error(let error):
