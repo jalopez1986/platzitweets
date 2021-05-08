@@ -7,6 +7,8 @@
 
 import UIKit
 import NotificationBannerSwift
+import Simple_Networking
+import SVProgressHUD
 
 class RegisterViewController: UIViewController {
     //MARK: - Outlets
@@ -47,8 +49,30 @@ class RegisterViewController: UIViewController {
             return
         }
         
-        performSegue(withIdentifier: "showHome", sender: nil)
+        let request = RegisterRequest(email: email, password: password, names: names)
         
+        SVProgressHUD.show()
+        
+        SN.post(endpoint: Endpoints.register, model: request) { (response: SNResultWithEntity<LoginResponde, ErrorResponse>) in
+            
+            SVProgressHUD.dismiss()
+            
+            switch response {
+            case .success(let user):
+                //NotificationBanner(subtitle: "Bienvenido \(user.user.names)", style: .success).show()
+                self.performSegue(withIdentifier: "showHome", sender: nil)
+                
+            case .error(let error):
+                NotificationBanner(subtitle: "Error: \(error.localizedDescription)", style: .danger).show()
+                return
+                
+            case .errorResult(let entity):
+                NotificationBanner(subtitle: "Error Result: \(entity.error)", style: .danger).show()
+                return
+                
+            }
+            
+        }
     }
 
 }
