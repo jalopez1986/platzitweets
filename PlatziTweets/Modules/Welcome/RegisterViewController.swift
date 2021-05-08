@@ -17,6 +17,9 @@ class RegisterViewController: UIViewController {
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var registerButton: UIButton!
     
+    private let storage = UserDefaults.standard
+    private let emailKey = "email-key"
+    
     @IBAction func registerButtonAction() {
         view.endEditing(true)
         performRegister()
@@ -61,6 +64,7 @@ class RegisterViewController: UIViewController {
             case .success(let user):
                 //NotificationBanner(subtitle: "Bienvenido \(user.user.names)", style: .success).show()
                 SimpleNetworking.setAuthenticationHeader(prefix: "", token: user.token)
+                self.storage.set(user.user.email , forKey: self.emailKey)
                 self.performSegue(withIdentifier: "showHome", sender: nil)
                 
             case .error(let error):

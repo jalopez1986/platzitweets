@@ -99,7 +99,10 @@ extension HomeViewController: UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return dataSource[indexPath.row].author.email == "jlopez@test.com"
+        if let storedEmail = UserDefaults.standard.string(forKey: "email-key") {
+            return dataSource[indexPath.row].author.email == storedEmail
+        }
+        return false
     }
     
 }

@@ -16,6 +16,9 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     
+    private let emailKey = "email-key"
+    private let storage = UserDefaults.standard
+    
     //MARK: -IBActions
     @IBAction func LoginButtonAction() {
         view.endEditing(true)
@@ -58,6 +61,7 @@ class LoginViewController: UIViewController {
             case .success(let user):
                 //NotificationBanner(subtitle: "Bienvenido \(user.user.names)", style: .success).show()
                 SimpleNetworking.setAuthenticationHeader(prefix: "", token: user.token)
+                self.storage.set(user.user.email , forKey: self.emailKey)
                 self.performSegue(withIdentifier: "showHome", sender: nil)
                 
             case .error(let error):
