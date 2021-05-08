@@ -28,8 +28,10 @@ class LoginViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        hideKeyboardWhenTappedAround()
 
         setupUI()
+        
     }
     
     //MARK: - Private Methods
@@ -77,3 +79,4 @@ class LoginViewController: UIViewController {
         }
     }
 }
+

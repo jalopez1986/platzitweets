@@ -12,6 +12,13 @@ import NotificationBannerSwift
 
 class AddPostViewController: UIViewController {
     @IBOutlet weak var postTextView: UITextView!
+    @IBOutlet weak var previewImageView: UIImageView!
+    
+    private var imagePicker: UIImagePickerController?
+    
+    @IBAction func openCameraAction() {
+        openCamera()
+    }
     
     @IBAction func AddPostAction() {
         savePost()
@@ -59,6 +66,47 @@ class AddPostViewController: UIViewController {
         
     }
     
-
-
+    private func openCamera() {
+        imagePicker = UIImagePickerController()
+        imagePicker?.sourceType = .camera
+        imagePicker?.cameraFlashMode = .off
+        imagePicker?.cameraCaptureMode = .photo
+        imagePicker?.allowsEditing = true
+        imagePicker?.delegate = self
+        
+        guard let imagePicker = imagePicker else {
+            return
+        }
+        
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
 }
+
+extension AddPostViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        imagePicker?.dismiss(animated: true, completion: nil)
+        
+        if info.keys.contains(.originalImage) {
+            previewImageView.isHidden = false
+            previewImageView.image = info[.originalImage] as? UIImage
+        }
+    }
+}
+
+
+
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
+
+
