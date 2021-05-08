@@ -29,6 +29,7 @@ class HomeViewController: UIViewController {
     }
     
     private func setupUI() {
+        tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: cellId, bundle: nil), forCellReuseIdentifier: cellId)
     }
@@ -54,9 +55,55 @@ class HomeViewController: UIViewController {
                 
             }
         }
-
+    }
+    
+    private func deletePostAt(indexPath: IndexPath) {
+        SVProgressHUD.show()
+        
+        let postId = dataSource[indexPath.row].id
+        
+        let endpoint = Endpoints.delete + postId
+        
+        SN.delete(endpoint: endpoint) { (response: SNResultWithEntity<GeneralResponse, ErrorResponse>) in
+            SVProgressHUD.dismiss()
+            
+            switch response {
+            case .success:
+                self.dataSource.remove(at: indexPath.row)
+                
+                self.tableView.deleteRows(at: [indexPath], with: .left)
+                
+                
+            case .error(let error):
+                NotificationBanner(subtitle: "Error: \(error.localizedDescription)", style: .danger).show()
+                return
+                
+            case .errorResult(let entity):
+                NotificationBanner(subtitle: "Error Result: \(entity.error)", style: .danger).show()
+                return
+                
+            }
+        }
+        
     }
 }
+
+extension HomeViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]?  {
+        
+        let deleteAction = UITableViewRowAction(style: .destructive, title: "Borrar") { (_,_ ) in
+            self.deletePostAt(indexPath: indexPath)
+        }
+        
+        return [deleteAction]
+    }
+    
+    func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        return dataSource[indexPath.row].author.email == "jlopez@test.com"
+    }
+    
+}
+
 
 extension HomeViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
