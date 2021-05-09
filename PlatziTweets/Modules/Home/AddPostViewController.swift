@@ -10,19 +10,24 @@ import Simple_Networking
 import SVProgressHUD
 import NotificationBannerSwift
 import FirebaseStorage
+import AVFoundation
+import AVKit
+import MobileCoreServices
 
 class AddPostViewController: UIViewController {
     @IBOutlet weak var postTextView: UITextView!
     @IBOutlet weak var previewImageView: UIImageView!
     
     private var imagePicker: UIImagePickerController?
+    private var currentVideoURL: URL?
     
     @IBAction func openCameraAction() {
         openCamera()
     }
     
     @IBAction func AddPostAction() {
-        uploadPhotoToFirebase()
+        openVideoCamera()
+        //uploadPhotoToFirebase()
     }
     
     @IBAction func dismissAction() {
@@ -73,6 +78,24 @@ class AddPostViewController: UIViewController {
         imagePicker?.sourceType = .camera
         imagePicker?.cameraFlashMode = .off
         imagePicker?.cameraCaptureMode = .photo
+        imagePicker?.allowsEditing = true
+        imagePicker?.delegate = self
+        
+        guard let imagePicker = imagePicker else {
+            return
+        }
+        
+        present(imagePicker, animated: true, completion: nil)
+    }
+    
+    private func openVideoCamera() {
+        imagePicker = UIImagePickerController()
+        imagePicker?.sourceType = .camera
+        imagePicker?.mediaTypes = [kUTTypeMovie as String]
+        imagePicker?.cameraFlashMode = .off
+        imagePicker?.cameraCaptureMode = .video
+        imagePicker?.videoQuality = .typeMedium
+        imagePicker?.videoMaximumDuration = TimeInterval(5)
         imagePicker?.allowsEditing = true
         imagePicker?.delegate = self
         
@@ -136,9 +159,23 @@ extension AddPostViewController: UIImagePickerControllerDelegate, UINavigationCo
         
         imagePicker?.dismiss(animated: true, completion: nil)
         
+        //capturar imagen
         if info.keys.contains(.originalImage) {
             previewImageView.isHidden = false
             previewImageView.image = info[.originalImage] as? UIImage
+        }
+        
+        //capturar URL video
+        if info.keys.contains(.mediaURL), let recordedVideoUrl = (info[.mediaURL] as? URL)?.absoluteURL {
+            let avPlayer = AVPlayer(url: recordedVideoUrl)
+            
+            let avPlayerController = AVPlayerViewController()
+            avPlayerController.player = avPlayer;
+            
+            present(avPlayerController, animated: true) {
+                avPlayerController.player?.play()
+            }
+            
         }
     }
 }
