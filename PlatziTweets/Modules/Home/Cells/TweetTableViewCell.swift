@@ -36,8 +36,11 @@ class TweetTableViewCell: UITableViewCell {
         messageLabel.text = post.text
         
         if (post.hasImage) {
+            videoButton.isHidden = false
+            tweetImageView.isHidden = false
             tweetImageView.kf.setImage(with: URL(string: post.imageUrl))
         } else {
+            videoButton.isHidden = true
             tweetImageView.isHidden = true
         }
     }

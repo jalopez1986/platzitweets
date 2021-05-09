@@ -22,7 +22,7 @@ class AddPostViewController: UIViewController {
     }
     
     @IBAction func AddPostAction() {
-        savePost()
+        uploadPhotoToFirebase()
     }
     
     @IBAction func dismissAction() {
@@ -35,16 +35,14 @@ class AddPostViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    private func savePost() {
-        uploadPhotoToFirebase()
-        return
+    private func savePost(imageUrl: String?) {
         
         guard let post = postTextView.text, !post.isEmpty else {
             NotificationBanner(title: "Error", subtitle: "Debes especificar un post", style: .warning).show()
             return
         }
         
-        let request = PostRequest(text: post, imageUrl: nil, videoUrl: nil, location: nil)
+        let request = PostRequest(text: post, imageUrl: imageUrl, videoUrl: nil, location: nil)
         
         SVProgressHUD.show()
         
@@ -123,20 +121,14 @@ class AddPostViewController: UIViewController {
                     
                     //Obtener la URL de descarga
                     folderReference.downloadURL { (url: URL?, error: Error?) in
-                        print(url?.absoluteString ?? "")
+                        let downloadUrl = url?.absoluteString ?? ""
+                        self.savePost(imageUrl: downloadUrl)
                         
                     }
-                    
-                    
                 }
-                
-                    
             }
         }
-        
-        
     }
-    
 }
 
 extension AddPostViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
