@@ -32,6 +32,7 @@
 		A560B3C62646D7B200248582 /* TweetTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A560B3C42646D7B200248582 /* TweetTableViewCell.xib */; };
 		A560B3C92647000400248582 /* AddPostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A560B3C82647000400248582 /* AddPostViewController.swift */; };
 		A560B3CD2647549000248582 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = A560B3CC2647549000248582 /* GoogleService-Info.plist */; };
+		A560B3D12648422000248582 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A560B3D02648422000248582 /* MapViewController.swift */; };
 		AB63D2ED452AFD8B53C2A407 /* Pods_PlatziTweets.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 53A7DDD8138DBE7F01AF7AEE /* Pods_PlatziTweets.framework */; };
 /* End PBXBuildFile section */
 
@@ -64,6 +65,7 @@
 		A560B3C42646D7B200248582 /* TweetTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TweetTableViewCell.xib; sourceTree = "<group>"; };
 		A560B3C82647000400248582 /* AddPostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddPostViewController.swift; sourceTree = "<group>"; };
 		A560B3CC2647549000248582 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		A560B3D02648422000248582 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
 		EBE8EDB06880984F871DF5E9 /* Pods-PlatziTweets.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlatziTweets.debug.xcconfig"; path = "Target Support Files/Pods-PlatziTweets/Pods-PlatziTweets.debug.xcconfig"; sourceTree = "<group>"; };
 		F473967EC2D13413B0AD1F92 /* Pods-PlatziTweets.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlatziTweets.release.xcconfig"; path = "Target Support Files/Pods-PlatziTweets/Pods-PlatziTweets.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -157,6 +159,7 @@
 				A560B39826423D6C00248582 /* Home.storyboard */,
 				A560B3BF2646D6CA00248582 /* HomeViewController.swift */,
 				A560B3C82647000400248582 /* AddPostViewController.swift */,
+				A560B3D02648422000248582 /* MapViewController.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				A560B3B4264243C300248582 /* User.swift in Sources */,
 				A560B3922640FB9A00248582 /* LoginViewController.swift in Sources */,
 				A560B3AE2642432300248582 /* PostRequestLocation.swift in Sources */,
+				A560B3D12648422000248582 /* MapViewController.swift in Sources */,
 				A560B3C92647000400248582 /* AddPostViewController.swift in Sources */,
 				A560B3C02646D6CA00248582 /* HomeViewController.swift in Sources */,
 				A560B3952640FBB400248582 /* RegisterViewController.swift in Sources */,
