@@ -9,6 +9,7 @@ import UIKit
 import Simple_Networking
 import SVProgressHUD
 import NotificationBannerSwift
+import FirebaseStorage
 
 class AddPostViewController: UIViewController {
     @IBOutlet weak var postTextView: UITextView!
@@ -35,6 +36,9 @@ class AddPostViewController: UIViewController {
     }
     
     private func savePost() {
+        uploadPhotoToFirebase()
+        return
+        
         guard let post = postTextView.text, !post.isEmpty else {
             NotificationBanner(title: "Error", subtitle: "Debes especificar un post", style: .warning).show()
             return
@@ -79,6 +83,58 @@ class AddPostViewController: UIViewController {
         }
         
         present(imagePicker, animated: true, completion: nil)
+    }
+    
+    private func uploadPhotoToFirebase() {
+        //1. Asegurarnos de que la foto exista
+        //2. Comprimir la imagen y convertirla en Data
+        guard let imageSaved = previewImageView.image,
+              let imageSavedData: Data = imageSaved.jpegData(compressionQuality: 0.1) else {
+            return
+        }
+        
+        //3. Mostrar procesando
+        SVProgressHUD.show()
+        
+        //4. Configuración para guardar la foto en firebase
+        let metaDataConfig = StorageMetadata()
+        metaDataConfig.contentType = "image/jpg"
+        
+        //5. Referencia al storage de firebase
+        let storage = Storage.storage()
+        
+        //6. Crear nombre de la imagen a subir
+        let imageName = UUID().uuidString
+        
+        //7. Referencia a la carpeta donde se va a guardar la foto
+        let folderReference = storage.reference(withPath: "fotos-tweets/\(imageName).jpg")
+        
+        //8. Subir la foto a Firebase
+        DispatchQueue.global(qos: .background).async {
+            folderReference.putData(imageSavedData, metadata: metaDataConfig) { (metaData: StorageMetadata?, error: Error?) in
+                
+                DispatchQueue.main.async {
+                    SVProgressHUD.dismiss()
+                    
+                    if let error = error {
+                        NotificationBanner(title: "Error", subtitle: error.localizedDescription, style: .danger).show()
+                        return
+                    }
+                    
+                    //Obtener la URL de descarga
+                    folderReference.downloadURL { (url: URL?, error: Error?) in
+                        print(url?.absoluteString ?? "")
+                        
+                    }
+                    
+                    
+                }
+                
+                    
+            }
+        }
+        
+        
     }
     
 }

@@ -71,13 +71,13 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="tGS-Px-FL8">
-                                <rect key="frame" x="20" y="117" width="374" height="237"/>
+                                <rect key="frame" x="20" y="117" width="374" height="177"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AN1-0f-SlB">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="120"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
                                         <color key="backgroundColor" red="0.44023425169665409" green="0.44023425169665409" blue="0.44023425169665409" alpha="0.16377395770562461" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="120" id="bBM-Dj-ePJ"/>
+                                            <constraint firstAttribute="height" constant="60" id="bBM-Dj-ePJ"/>
                                         </constraints>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" systemColor="labelColor"/>
@@ -85,20 +85,20 @@
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
                                     <imageView hidden="YES" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="K05-3e-pJO">
-                                        <rect key="frame" x="0.0" y="130" width="374" height="200"/>
+                                        <rect key="frame" x="0.0" y="70" width="374" height="100"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="200" id="euj-x5-q85"/>
+                                            <constraint firstAttribute="height" constant="100" id="euj-x5-q85"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lUM-JC-DLc">
-                                        <rect key="frame" x="0.0" y="140" width="374" height="30"/>
+                                        <rect key="frame" x="0.0" y="80" width="374" height="30"/>
                                         <state key="normal" title="Abrir cámara"/>
                                         <connections>
                                             <action selector="openCameraAction" destination="VJ0-5q-IVa" eventType="touchUpInside" id="LDm-r5-QCa"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MvY-in-sUv">
-                                        <rect key="frame" x="0.0" y="190" width="374" height="47"/>
+                                        <rect key="frame" x="0.0" y="130" width="374" height="47"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="47" id="Jwu-wd-BSu"/>
