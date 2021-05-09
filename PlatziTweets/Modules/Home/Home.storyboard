@@ -71,7 +71,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="tGS-Px-FL8">
-                                <rect key="frame" x="20" y="117" width="374" height="177"/>
+                                <rect key="frame" x="20" y="117" width="374" height="219"/>
                                 <subviews>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="AN1-0f-SlB">
                                         <rect key="frame" x="0.0" y="0.0" width="374" height="60"/>
@@ -97,8 +97,18 @@
                                             <action selector="openCameraAction" destination="VJ0-5q-IVa" eventType="touchUpInside" id="LDm-r5-QCa"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TMh-2e-1rb">
+                                        <rect key="frame" x="0.0" y="130" width="374" height="22"/>
+                                        <color key="tintColor" systemColor="systemGreenColor"/>
+                                        <state key="normal" title="Ver Video" image="video.fill" catalog="system">
+                                            <color key="titleColor" systemColor="labelColor"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="wathVideoAction" destination="VJ0-5q-IVa" eventType="touchUpInside" id="XXe-Of-EDr"/>
+                                        </connections>
+                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MvY-in-sUv">
-                                        <rect key="frame" x="0.0" y="130" width="374" height="47"/>
+                                        <rect key="frame" x="0.0" y="172" width="374" height="47"/>
                                         <color key="backgroundColor" systemColor="systemGreenColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="47" id="Jwu-wd-BSu"/>
@@ -139,6 +149,7 @@
                     <connections>
                         <outlet property="postTextView" destination="AN1-0f-SlB" id="PG0-HV-IIm"/>
                         <outlet property="previewImageView" destination="K05-3e-pJO" id="kt4-wy-FEL"/>
+                        <outlet property="videoButton" destination="TMh-2e-1rb" id="Q7n-7S-HRx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G0Z-C3-kua" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -166,6 +177,7 @@
     </scenes>
     <resources>
         <image name="bottomImage" width="351.5" height="123"/>
+        <image name="video.fill" catalog="system" width="128" height="82"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

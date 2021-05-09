@@ -18,11 +18,27 @@ class AddPostViewController: UIViewController {
     @IBOutlet weak var postTextView: UITextView!
     @IBOutlet weak var previewImageView: UIImageView!
     
+    @IBOutlet weak var videoButton: UIButton!
+    
     private var imagePicker: UIImagePickerController?
     private var currentVideoURL: URL?
     
     @IBAction func openCameraAction() {
         openCamera()
+    }
+    @IBAction func wathVideoAction() {
+        guard let currentVideoURL = currentVideoURL else {
+            return
+        }
+        
+        let avPlayer = AVPlayer(url: currentVideoURL)
+        
+        let avPlayerController = AVPlayerViewController()
+        avPlayerController.player = avPlayer;
+        
+        present(avPlayerController, animated: true) {
+            avPlayerController.player?.play()
+        }
     }
     
     @IBAction func AddPostAction() {
@@ -167,15 +183,8 @@ extension AddPostViewController: UIImagePickerControllerDelegate, UINavigationCo
         
         //capturar URL video
         if info.keys.contains(.mediaURL), let recordedVideoUrl = (info[.mediaURL] as? URL)?.absoluteURL {
-            let avPlayer = AVPlayer(url: recordedVideoUrl)
-            
-            let avPlayerController = AVPlayerViewController()
-            avPlayerController.player = avPlayer;
-            
-            present(avPlayerController, animated: true) {
-                avPlayerController.player?.play()
-            }
-            
+            videoButton.isHidden = false
+            currentVideoURL = recordedVideoUrl
         }
     }
 }
