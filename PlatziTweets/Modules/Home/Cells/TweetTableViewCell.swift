@@ -16,7 +16,18 @@ class TweetTableViewCell: UITableViewCell {
     @IBOutlet weak var videoButton: UIButton!
     @IBOutlet weak var dateLabel: UILabel!
     
+    //NOTA IMPORTANTE
+    //Las celdas NUNCA deben invocar ViewControllers
+    
+    private var videoURL: URL?
+    var needsToShowVideo: ((_ url: URL) -> Void)?
+    
     @IBAction func ShowVideo() {
+        guard let videoUrl = videoURL else {
+            return
+        }
+        
+        needsToShowVideo?(videoUrl)
     }
     
     override func awakeFromNib() {
@@ -31,18 +42,20 @@ class TweetTableViewCell: UITableViewCell {
     }
     
     func setupCellWith(post: Post) {
+        videoButton.isHidden = !post.hasVideo
         nameLabel.text = post.author.names
         nicknameLabel.text = post.author.nickname
         messageLabel.text = post.text
         
         if (post.hasImage) {
-            videoButton.isHidden = false
             tweetImageView.isHidden = false
             tweetImageView.kf.setImage(with: URL(string: post.imageUrl))
         } else {
-            videoButton.isHidden = true
             tweetImageView.isHidden = true
         }
+        
+        videoURL = URL(string: post.videoUrl)
+        
     }
     
 }
