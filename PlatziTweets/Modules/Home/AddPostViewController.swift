@@ -24,7 +24,20 @@ class AddPostViewController: UIViewController {
     private var currentVideoURL: URL?
     
     @IBAction func openCameraAction() {
-        openCamera()
+        let alert = UIAlertController(title: "Camara", message: "Selecciona una opcion", preferredStyle: .actionSheet)
+        
+        alert.addAction(UIAlertAction(title: "Foto", style: .default, handler: { _ in
+            self.openCamera()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Video", style: .default, handler: { _ in
+            self.openVideoCamera()
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Cancelar", style: .destructive, handler: nil))
+        
+        present(alert, animated: true, completion: nil)
+        
     }
     @IBAction func wathVideoAction() {
         guard let currentVideoURL = currentVideoURL else {
@@ -42,7 +55,7 @@ class AddPostViewController: UIViewController {
     }
     
     @IBAction func AddPostAction() {
-        openVideoCamera()
+        uploadVideoToFirebase()
         //uploadPhotoToFirebase()
     }
     
@@ -56,14 +69,14 @@ class AddPostViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
-    private func savePost(imageUrl: String?) {
+    private func savePost(imageUrl: String?, videoUrl: String?) {
         
         guard let post = postTextView.text, !post.isEmpty else {
             NotificationBanner(title: "Error", subtitle: "Debes especificar un post", style: .warning).show()
             return
         }
         
-        let request = PostRequest(text: post, imageUrl: imageUrl, videoUrl: nil, location: nil)
+        let request = PostRequest(text: post, imageUrl: imageUrl, videoUrl: videoUrl, location: nil)
         
         SVProgressHUD.show()
         
@@ -161,13 +174,61 @@ class AddPostViewController: UIViewController {
                     //Obtener la URL de descarga
                     folderReference.downloadURL { (url: URL?, error: Error?) in
                         let downloadUrl = url?.absoluteString ?? ""
-                        self.savePost(imageUrl: downloadUrl)
+                        self.savePost(imageUrl: downloadUrl, videoUrl: nil)
                         
                     }
                 }
             }
         }
     }
+    
+    private func uploadVideoToFirebase() {
+        //1. Asegurarnos de que el video exista
+        //2. convertir en data el video
+        guard let currentVideoSavedURL = currentVideoURL,
+              let videoData: Data = try? Data(contentsOf: currentVideoSavedURL) else {
+            return
+        }
+        
+        //3. Mostrar procesando
+        SVProgressHUD.show()
+        
+        //4. Configuración para guardar el video en firebase
+        let metaDataConfig = StorageMetadata()
+        metaDataConfig.contentType = "video/MP4"
+        
+        //5. Referencia al storage de firebase
+        let storage = Storage.storage()
+        
+        //6. Crear nombre del video a subir
+        let videoName = UUID().uuidString
+        
+        //7. Referencia a la carpeta donde se va a guardar el video
+        let folderReference = storage.reference(withPath: "video-tweets/\(videoName).mp4")
+        
+        //8. Subir el video a Firebase
+        DispatchQueue.global(qos: .background).async {
+            folderReference.putData(videoData, metadata: metaDataConfig) { (metaData: StorageMetadata?, error: Error?) in
+                
+                DispatchQueue.main.async {
+                    SVProgressHUD.dismiss()
+                    
+                    if let error = error {
+                        NotificationBanner(title: "Error", subtitle: error.localizedDescription, style: .danger).show()
+                        return
+                    }
+                    
+                    //Obtener la URL de descarga
+                    folderReference.downloadURL { (url: URL?, error: Error?) in
+                        let downloadUrl = url?.absoluteString ?? ""
+                        self.savePost(imageUrl: nil, videoUrl: downloadUrl)
+                        
+                    }
+                }
+            }
+        }
+    }
+
 }
 
 extension AddPostViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
